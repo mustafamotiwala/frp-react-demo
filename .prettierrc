@@ -1,0 +1,16 @@
+{
+	"useTabs": false,
+  "tabWidth": 2,
+	"semi": true,
+	"singleQuote": true,
+	"printWidth": 120,
+	"overrides": [
+		{
+			"files": ["package.json", "*.md"],
+			"options": {
+				"useTabs": false,
+				"tabWidth": 2
+			}
+		}
+	]
+}
