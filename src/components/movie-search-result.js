@@ -1,12 +1,24 @@
-export const MovieSearchResultRow = ({ movie }) => {
+import { observer } from 'mobx-react-lite';
+import { useHistory } from 'react-router-dom';
+
+export const MovieSearchResultRow = observer(({ movie }) => {
+  const history = useHistory();
+
+  const viewMovieDetails = () => {
+    history.push(`/movie/${movie.imdbID}`);
+  };
+
   return (
-    <div className="m-2 max-w-md mx-auto dark:bg-coolGray-700 rounded-xl shadow-md overflow-hidden">
+    <div
+      onClick={viewMovieDetails}
+      className="m-2 max-w-md mx-auto dark:bg-coolGray-700 rounded-xl shadow-md overflow-hidden cursor-pointer"
+    >
       <div className="md:flex">
         <div className="md:flex-shrink-0">
           <img
             className="h-28 md:pl-2 w-full md:w-auto object-cover object-top md:object-scale-down "
             src={movie.Poster}
-            alt={'Poster for ' + movie.Title}
+            alt={'Poster for movie'}
           />
         </div>
         <div className="p-4">
@@ -18,4 +30,4 @@ export const MovieSearchResultRow = ({ movie }) => {
       </div>
     </div>
   );
-};
+});
